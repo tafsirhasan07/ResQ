@@ -1,1 +1,46 @@
-import Link from 'next/link';import Section from '@/components/Section';import ReportForm from '@/components/ReportForm';import {AlertTriangle,PhoneCall} from 'lucide-react';export default function Crisis(){return <><section className="hero"><div className="container py-14"><span className="pill">AI-Powered Crisis Desk</span><h1 className="mt-4 text-4xl font-black">Report an emergency</h1><p className="muted mt-3 max-w-2xl">Describe what is happening and where. ResQ automatically classifies the incident, estimates urgency and checks for similar recent reports.</p></div></section><Section title="Emergency report" subtitle="English, Bangla or mixed language is supported."><div className="grid lg:grid-cols-[1fr_330px] gap-6"><ReportForm kind="crisis"/><aside className="card h-fit p-6"><div className="flex items-center gap-2 text-red-300"><AlertTriangle size={19}/><b>Immediate danger?</b></div><p className="muted mt-3 text-sm leading-6">If someone's life is in immediate danger, call the national emergency service first.</p><Link href="tel:999" className="btn btn-danger mt-5 w-full"><PhoneCall size={17}/>Call 999</Link><Link href="/crisis/track" className="btn btn-ghost mt-2 w-full">Track a submitted report</Link></aside></div></Section></>}
+import Link from "next/link";
+import Section from "@/components/Section";
+import ReportForm from "@/components/ReportForm";
+import { AlertTriangle, PhoneCall } from "lucide-react";
+export default function Crisis() {
+  return (
+    <>
+      <section className="hero">
+        <div className="container py-14">
+          <span className="pill">AI-Powered Crisis Desk</span>
+          <h1 className="mt-4 text-4xl font-black">Report an emergency</h1>
+          <p className="muted mt-3 max-w-2xl">
+            Describe what is happening and where. ResQ automatically classifies
+            the incident, estimates urgency and checks for similar recent
+            reports.
+          </p>
+        </div>
+      </section>
+      <Section
+        title="Emergency report"
+        subtitle="English, Bangla or mixed language is supported."
+      >
+        <div className="grid lg:grid-cols-[1fr_330px] gap-6">
+          <ReportForm kind="crisis" />
+          <aside className="card h-fit p-6">
+            <div className="flex items-center gap-2 text-red-300">
+              <AlertTriangle size={19} />
+              <b>Immediate danger?</b>
+            </div>
+            <p className="muted mt-3 text-sm leading-6">
+              If someone&apos;s life is in immediate danger, call the national
+              emergency service first.
+            </p>
+            <Link href="tel:999" className="btn btn-danger mt-5 w-full">
+              <PhoneCall size={17} />
+              Call 999
+            </Link>
+            <Link href="/crisis/track" className="btn btn-ghost mt-2 w-full">
+              Track a submitted report
+            </Link>
+          </aside>
+        </div>
+      </Section>
+    </>
+  );
+}

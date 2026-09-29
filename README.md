@@ -23,11 +23,13 @@ npm run dev
 
 Open http://localhost:3000.
 
-### Demo accounts
+### Local demo accounts
 
 - Admin: `admin@resq.local` / `Admin@12345`
 - Staff: `staff@resq.local` / `Staff@12345`
 - Citizen: `citizen@resq.local` / `Citizen@12345`
+
+These accounts are for local development only. Do not use them in a public deployment.
 
 If MongoDB is configured, ResQ uses the `resq` database through the supplied URI. Without MongoDB, the development store persists in `storage/resq.json` so the complete local workflow can still be exercised.
 

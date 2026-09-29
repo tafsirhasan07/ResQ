@@ -1,1 +1,54 @@
-import {NextResponse} from 'next/server';import {requireRole} from '@/lib/auth';import {findOne,updateOne,now,insert,id} from '@/lib/db';export async function PATCH(req:Request,{params}:{params:{id:string}}){try{const u=await requireRole(['staff','admin']);const body=await req.json();const allowed=['pending','in_review','assigned','in_progress','resolved','rejected'];if(!allowed.includes(body.status))return NextResponse.json({message:'Invalid status'},{status:400});const r:any=await findOne('crisis_reports',{_id:params.id});if(!r)return NextResponse.json({message:'Not found'},{status:404});const history=[...(r.statusHistory||[]),{status:body.status,by:u.name,comment:body.comment,at:now()}];const updated=await updateOne('crisis_reports',{_id:params.id},{status:body.status,statusHistory:history,updatedAt:now()});if(r.userId)await insert('notifications',{_id:id('ntf_'),userId:r.userId,title:'Crisis report updated',message:`${r.trackingCode} is now ${body.status.replace('_',' ')}.`,read:false,createdAt:now()});return NextResponse.json({report:updated})}catch(e:any){return NextResponse.json({message:e.message==='UNAUTHORIZED'?'Unauthorized':'Could not update report'},{status:e.message==='UNAUTHORIZED'?401:400})}}
+import { NextResponse } from "next/server";
+import { requireRole } from "@/lib/auth";
+import { findOne, updateOne, now, insert, id } from "@/lib/db";
+export async function PATCH(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const { id: reportId } = await params;
+  try {
+    const u = await requireRole(["staff", "admin"]);
+    const body = await req.json();
+    const allowed = [
+      "pending",
+      "in_review",
+      "assigned",
+      "in_progress",
+      "resolved",
+      "rejected",
+    ];
+    if (!allowed.includes(body.status))
+      return NextResponse.json({ message: "Invalid status" }, { status: 400 });
+    const r: any = await findOne("crisis_reports", { _id: reportId });
+    if (!r) return NextResponse.json({ message: "Not found" }, { status: 404 });
+    const history = [
+      ...(r.statusHistory || []),
+      { status: body.status, by: u.name, comment: body.comment, at: now() },
+    ];
+    const updated = await updateOne(
+      "crisis_reports",
+      { _id: reportId },
+      { status: body.status, statusHistory: history, updatedAt: now() },
+    );
+    if (r.userId)
+      await insert("notifications", {
+        _id: id("ntf_"),
+        userId: r.userId,
+        title: "Crisis report updated",
+        message: `${r.trackingCode} is now ${body.status.replace("_", " ")}.`,
+        read: false,
+        createdAt: now(),
+      });
+    return NextResponse.json({ report: updated });
+  } catch (e: any) {
+    return NextResponse.json(
+      {
+        message:
+          e.message === "UNAUTHORIZED"
+            ? "Unauthorized"
+            : "Could not update report",
+      },
+      { status: e.message === "UNAUTHORIZED" ? 401 : 400 },
+    );
+  }
+}

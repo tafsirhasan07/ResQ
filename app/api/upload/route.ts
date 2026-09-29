@@ -1,2 +1,35 @@
-import {NextResponse} from 'next/server';import {mkdir,writeFile} from 'node:fs/promises';import path from 'node:path';import {randomUUID} from 'node:crypto';
-export const runtime='nodejs';export async function POST(req:Request){try{const form=await req.formData();const files=form.getAll('files').filter((x):x is File=>x instanceof File);if(!files.length)return NextResponse.json({message:'No files provided'},{status:400});if(files.length>5)return NextResponse.json({message:'Maximum 5 files'},{status:400});const dir=path.join(process.cwd(),'public','uploads');await mkdir(dir,{recursive:true});const out:string[]=[];for(const f of files){if(!/^image\/(jpeg|png|webp|gif)$|^video\/(mp4|webm|quicktime)$/.test(f.type))return NextResponse.json({message:`Unsupported file type: ${f.type}`},{status:400});if(f.size>25*1024*1024)return NextResponse.json({message:`File too large: ${f.name}`},{status:400});const ext=path.extname(f.name)||'.bin';const name=`${randomUUID()}${ext}`;await writeFile(path.join(dir,name),Buffer.from(await f.arrayBuffer()));out.push(`/uploads/${name}`)}return NextResponse.json({files:out})}catch{return NextResponse.json({message:'Upload failed'},{status:500})}}
+import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
+import { NextResponse } from "next/server";
+
+export const runtime = "nodejs";
+
+const allowedContentTypes = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+  "video/mp4",
+  "video/webm",
+  "video/quicktime",
+];
+
+export async function POST(request: Request) {
+  try {
+    const body = (await request.json()) as HandleUploadBody;
+    const response = await handleUpload({
+      body,
+      request,
+      onBeforeGenerateToken: async () => ({
+        allowedContentTypes,
+        maximumSizeInBytes: 25 * 1024 * 1024,
+      }),
+    });
+    return NextResponse.json(response);
+  } catch (error) {
+    console.error("Upload authorization failed", error);
+    return NextResponse.json(
+      { message: "Unable to authorize upload." },
+      { status: 400 },
+    );
+  }
+}

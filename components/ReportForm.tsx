@@ -1,2 +1,241 @@
-'use client';import {useState} from 'react';import {MapPin,Send,ShieldAlert} from 'lucide-react';
-export default function ReportForm({kind}:{kind:'crisis'|'infrastructure'}){const [busy,setBusy]=useState(false);const [result,setResult]=useState<any>(null);const [error,setError]=useState('');const [location,setLocation]=useState('');const [lat,setLat]=useState<number|undefined>();const [lon,setLon]=useState<number|undefined>();const [description,setDescription]=useState('');const [title,setTitle]=useState('');const [files,setFiles]=useState<FileList|null>(null);const [contact,setContact]=useState('');const [name,setName]=useState('');const detect=()=>navigator.geolocation?.getCurrentPosition(p=>{setLat(p.coords.latitude);setLon(p.coords.longitude);setLocation(`GPS ${p.coords.latitude.toFixed(5)}, ${p.coords.longitude.toFixed(5)}`),setError('')},()=>setError('Location permission was not available. Enter the location manually.'));const submit=async(e:React.FormEvent)=>{e.preventDefault();setBusy(true);setError('');try{let media:string[]=[];if(files?.length){const fd=new FormData();for(let i=0;i<files.length;i++){const f=files.item(i);if(f)fd.append('files',f);}const ur=await fetch('/api/upload',{method:'POST',body:fd});const uj=await ur.json();if(!ur.ok)throw new Error(uj.message||'Upload failed');media=uj.files||[]}const payload=kind==='crisis'?{description,location,name,contact,latitude:lat,longitude:lon,media,language:/[\u0980-\u09FF]/.test(description)?'bn':'en'}:{title,description,location:{address:location,latitude:lat,longitude:lon},photos:media};const r=await fetch(kind==='crisis'?'/api/crisis':'/api/infrastructure',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const j=await r.json();if(!r.ok)throw new Error(j.message||'Submission failed');setResult(j.report||j.issue);setDescription('');setTitle('')}catch(e:any){setError(e.message)}finally{setBusy(false)}};if(result)return <div className="card p-7"><div className="mb-3 flex items-center gap-2 text-emerald-400"><ShieldAlert size={22}/><span className="font-bold">Report received</span></div><h3 className="text-2xl font-black">{result.trackingCode}</h3><p className="muted mt-2">Keep this tracking code. You can use it anytime to see the status and response timeline.</p><div className="mt-5 flex flex-wrap gap-2"><span className="pill">{result.category}</span><span className="pill">{result.urgency||result.severityLabel}</span><span className="pill">{result.status}</span></div><button className="btn btn-primary mt-5" onClick={()=>setResult(null)}>Submit another report</button></div>;return <form onSubmit={submit} className="card p-6 space-y-5">{error&&<div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-200">{error}</div>}{kind==='infrastructure'&&<div><label className="mb-2 block text-sm font-bold">Issue title</label><input className="input" value={title} onChange={e=>setTitle(e.target.value)} placeholder="e.g. Deep pothole on main road" required/></div>}<div><label className="mb-2 block text-sm font-bold">What is happening?</label><textarea className="input min-h-32" value={description} onChange={e=>setDescription(e.target.value)} placeholder={kind==='crisis'?'Describe the emergency in English, Bangla or mixed language.':'Describe the infrastructure problem and its impact.'} required minLength={10}/></div><div><label className="mb-2 block text-sm font-bold">Media (optional, up to 5 files / 25MB each)</label><input className="input" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime" onChange={e=>setFiles(e.target.files)}/></div><div><label className="mb-2 block text-sm font-bold">Location</label><div className="flex gap-2"><input className="input" value={location} onChange={e=>setLocation(e.target.value)} placeholder="Road, area, district or exact location" required/><button type="button" className="btn btn-ghost shrink-0" onClick={detect}><MapPin size={17}/>GPS</button></div>{lat&&<p className="muted mt-2 text-xs">Coordinates captured: {lat.toFixed(5)}, {lon?.toFixed(5)}</p>}</div>{kind==='crisis'&&<div className="grid md:grid-cols-2 gap-4"><div><label className="mb-2 block text-sm font-bold">Name (optional)</label><input className="input" value={name} onChange={e=>setName(e.target.value)}/></div><div><label className="mb-2 block text-sm font-bold">Contact</label><input className="input" value={contact} onChange={e=>setContact(e.target.value)} placeholder="017xxxxxxxx"/></div></div>}<button disabled={busy} className="btn btn-primary w-full" type="submit"><Send size={17}/>{busy?'Processing...':'Submit Report'}</button><p className="muted text-xs">AI triage and duplicate detection run automatically. Immediate life-threatening emergencies should also be reported to 999.</p></form>}
+"use client";
+import { useState } from "react";
+import { MapPin, Send, ShieldAlert } from "lucide-react";
+import { upload } from "@vercel/blob/client";
+
+const fileExtensions: Record<string, string> = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+  "image/gif": "gif",
+  "video/mp4": "mp4",
+  "video/webm": "webm",
+  "video/quicktime": "mov",
+};
+
+export default function ReportForm({
+  kind,
+}: {
+  kind: "crisis" | "infrastructure";
+}) {
+  const [busy, setBusy] = useState(false);
+  const [result, setResult] = useState<any>(null);
+  const [error, setError] = useState("");
+  const [location, setLocation] = useState("");
+  const [lat, setLat] = useState<number | undefined>();
+  const [lon, setLon] = useState<number | undefined>();
+  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("");
+  const [files, setFiles] = useState<FileList | null>(null);
+  const [contact, setContact] = useState("");
+  const [name, setName] = useState("");
+  const detect = () =>
+    navigator.geolocation?.getCurrentPosition(
+      (p) => {
+        setLat(p.coords.latitude);
+        setLon(p.coords.longitude);
+        (setLocation(
+          `GPS ${p.coords.latitude.toFixed(5)}, ${p.coords.longitude.toFixed(5)}`,
+        ),
+          setError(""));
+      },
+      () =>
+        setError(
+          "Location permission was not available. Enter the location manually.",
+        ),
+    );
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      let media: string[] = [];
+      if (files?.length) {
+        const selectedFiles = Array.from(files);
+        if (selectedFiles.length > 5)
+          throw new Error("Maximum 5 files per report.");
+        media = await Promise.all(
+          selectedFiles.map(async (file) => {
+            const extension = fileExtensions[file.type];
+            if (!extension)
+              throw new Error(`Unsupported file type: ${file.type}`);
+            if (file.size > 25 * 1024 * 1024)
+              throw new Error(`File too large: ${file.name}`);
+            const blob = await upload(
+              `${crypto.randomUUID()}.${extension}`,
+              file,
+              { access: "public", handleUploadUrl: "/api/upload" },
+            );
+            return blob.url;
+          }),
+        );
+      }
+      const payload =
+        kind === "crisis"
+          ? {
+              description,
+              location,
+              name,
+              contact,
+              latitude: lat,
+              longitude: lon,
+              media,
+              language: /[\u0980-\u09FF]/.test(description) ? "bn" : "en",
+            }
+          : {
+              title,
+              description,
+              location: { address: location, latitude: lat, longitude: lon },
+              photos: media,
+            };
+      const r = await fetch(
+        kind === "crisis" ? "/api/crisis" : "/api/infrastructure",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
+      );
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.message || "Submission failed");
+      setResult(j.report || j.issue);
+      setDescription("");
+      setTitle("");
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+  if (result)
+    return (
+      <div className="card p-7">
+        <div className="mb-3 flex items-center gap-2 text-emerald-400">
+          <ShieldAlert size={22} />
+          <span className="font-bold">Report received</span>
+        </div>
+        <h3 className="text-2xl font-black">{result.trackingCode}</h3>
+        <p className="muted mt-2">
+          Keep this tracking code. You can use it anytime to see the status and
+          response timeline.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          <span className="pill">{result.category}</span>
+          <span className="pill">{result.urgency || result.severityLabel}</span>
+          <span className="pill">{result.status}</span>
+        </div>
+        <button
+          className="btn btn-primary mt-5"
+          onClick={() => setResult(null)}
+        >
+          Submit another report
+        </button>
+      </div>
+    );
+  return (
+    <form onSubmit={submit} className="card p-6 space-y-5">
+      {error && (
+        <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-200">
+          {error}
+        </div>
+      )}
+      {kind === "infrastructure" && (
+        <div>
+          <label className="mb-2 block text-sm font-bold">Issue title</label>
+          <input
+            className="input"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="e.g. Deep pothole on main road"
+            required
+          />
+        </div>
+      )}
+      <div>
+        <label className="mb-2 block text-sm font-bold">
+          What is happening?
+        </label>
+        <textarea
+          className="input min-h-32"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder={
+            kind === "crisis"
+              ? "Describe the emergency in English, Bangla or mixed language."
+              : "Describe the infrastructure problem and its impact."
+          }
+          required
+          minLength={10}
+        />
+      </div>
+      <div>
+        <label className="mb-2 block text-sm font-bold">
+          Media (optional, up to 5 files / 25MB each)
+        </label>
+        <input
+          className="input"
+          type="file"
+          multiple
+          accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime"
+          onChange={(e) => setFiles(e.target.files)}
+        />
+      </div>
+      <div>
+        <label className="mb-2 block text-sm font-bold">Location</label>
+        <div className="flex gap-2">
+          <input
+            className="input"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="Road, area, district or exact location"
+            required
+          />
+          <button
+            type="button"
+            className="btn btn-ghost shrink-0"
+            onClick={detect}
+          >
+            <MapPin size={17} />
+            GPS
+          </button>
+        </div>
+        {lat && (
+          <p className="muted mt-2 text-xs">
+            Coordinates captured: {lat.toFixed(5)}, {lon?.toFixed(5)}
+          </p>
+        )}
+      </div>
+      {kind === "crisis" && (
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="mb-2 block text-sm font-bold">
+              Name (optional)
+            </label>
+            <input
+              className="input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-bold">Contact</label>
+            <input
+              className="input"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+              placeholder="017xxxxxxxx"
+            />
+          </div>
+        </div>
+      )}
+      <button disabled={busy} className="btn btn-primary w-full" type="submit">
+        <Send size={17} />
+        {busy ? "Processing..." : "Submit Report"}
+      </button>
+      <p className="muted text-xs">
+        AI triage and duplicate detection run automatically. Immediate
+        life-threatening emergencies should also be reported to 999.
+      </p>
+    </form>
+  );
+}
