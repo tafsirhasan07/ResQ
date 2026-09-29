@@ -3,18 +3,20 @@ import { SignJWT, jwtVerify } from "jose";
 import bcrypt from "bcryptjs";
 import { findOne } from "./db";
 import type { User, Role } from "@/types";
-const configuredSecret = process.env.JWT_SECRET;
-if (
-  process.env.NODE_ENV === "production" &&
-  (!configuredSecret || configuredSecret.length < 32)
-) {
-  throw new Error(
-    "JWT_SECRET must be set to at least 32 characters in production.",
+function getSecret() {
+  const configuredSecret = process.env.JWT_SECRET;
+  if (
+    process.env.NODE_ENV === "production" &&
+    (!configuredSecret || configuredSecret.length < 32)
+  ) {
+    throw new Error(
+      "JWT_SECRET must be set to at least 32 characters in production.",
+    );
+  }
+  return new TextEncoder().encode(
+    configuredSecret || "resq-development-secret-change-me",
   );
 }
-const secret = new TextEncoder().encode(
-  configuredSecret || "resq-development-secret-change-me",
-);
 const COOKIE = "resq_session";
 export async function hashPassword(p: string) {
   return bcrypt.hash(p, 12);
@@ -29,7 +31,7 @@ export async function setSession(
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("7d")
-    .sign(secret);
+    .sign(getSecret());
   (await cookies()).set(COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
@@ -48,7 +50,7 @@ export async function currentUser(): Promise<Pick<
   const token = (await cookies()).get(COOKIE)?.value;
   if (!token) return null;
   try {
-    const { payload } = await jwtVerify(token, secret);
+    const { payload } = await jwtVerify(token, getSecret());
     return {
       _id: String(payload._id),
       name: String(payload.name),

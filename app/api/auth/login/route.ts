@@ -37,7 +37,9 @@ export async function POST(req: Request) {
       error instanceof Error ? error.name : "UnknownError",
     );
     return NextResponse.json(
-      { message: "Sign-in service unavailable. Check the database configuration." },
+      {
+        message: "Sign-in service unavailable. Check database and auth configuration.",
+      },
       { status: 503 },
     );
   }

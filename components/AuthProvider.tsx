@@ -1,3 +1,49 @@
-'use client';import {createContext,useContext,useEffect,useState} from 'react';
-export type User={id:string;name:string;email:string;role:'citizen'|'staff'|'admin'};type Ctx={user:User|null;loading:boolean;refresh:()=>Promise<void>;logout:()=>Promise<void>};const C=createContext<Ctx>({user:null,loading:true,refresh:async()=>{},logout:async()=>{}});
-export function AuthProvider({children}:{children:React.ReactNode}){const [user,setUser]=useState<User|null>(null);const [loading,setLoading]=useState(true);const refresh=async()=>{try{const r=await fetch('/api/auth/me',{cache:'no-store'});const j=await r.json();setUser(j.user||null)}finally{setLoading(false)}};useEffect(()=>{refresh()},[]);const logout=async()=>{await fetch('/api/auth/logout',{method:'POST'});setUser(null);location.href='/'};return <C.Provider value={{user,loading,refresh,logout}}>{children}</C.Provider>};export const useAuth=()=>useContext(C);
+"use client";
+import { createContext, useContext, useEffect, useState } from "react";
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  role: "citizen" | "staff" | "admin";
+};
+type Ctx = {
+  user: User | null;
+  loading: boolean;
+  refresh: () => Promise<void>;
+  logout: () => Promise<void>;
+};
+const C = createContext<Ctx>({
+  user: null,
+  loading: true,
+  refresh: async () => {},
+  logout: async () => {},
+});
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+  const refresh = async () => {
+    try {
+      const r = await fetch("/api/auth/me", { cache: "no-store" });
+      const j: { user?: User | null } | null = await r.json().catch(() => null);
+      setUser(r.ok ? (j?.user ?? null) : null);
+    } catch {
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    refresh();
+  }, []);
+  const logout = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
+    setUser(null);
+    location.href = "/";
+  };
+  return (
+    <C.Provider value={{ user, loading, refresh, logout }}>
+      {children}
+    </C.Provider>
+  );
+}
+export const useAuth = () => useContext(C);
