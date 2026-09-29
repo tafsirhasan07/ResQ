@@ -1,0 +1,1 @@
+import Section from '@/components/Section';import TrackBox from '@/components/TrackBox';export default function TrackInfrastructure(){return <Section title="Track infrastructure issue"><TrackBox/></Section>}

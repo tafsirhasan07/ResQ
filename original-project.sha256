@@ -1,0 +1,121 @@
+b06901c0b4a248fbac8c7396a571b7d7836e746f893e8e56a0fdb44d70b63b10  ISD Project final/CrisisDesk AI - Emergency Portal figma design.pdf
+fc9ab8cfb4e8f9390f915f1ee3003af4b7993a00616e72181dc591e76e5b52f2  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/.env.local.example
+1589a15e55fbebc6519c95d91d8f0a090618f20dc78e479858b9c27552484961  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/.eslintrc.json
+f37e7e1b90353a16ba7bec8979585311ee6d00311209391e5ab47162df4ca922  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/.gitignore
+879dac6868147819f481dadef2d77801347d94412bd945bd3f8e7614d14ecce0  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/CrisisDeskai.zip
+85b56a6ae85f6f309388da143ff46da31dd787bc9036122b08d31c16e8e7cfd7  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/Dockerfile
+f0e593804a94656fa4a679df812866b1c4d5150beca2e160e5c77172c5b8f7e0  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/README.md
+0516abf9831fd1e41f2e26b65478201bb349428ecc83d35c6eb25b0e830d459d  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/admin/page.tsx
+ed140776f405c277c419c975dca4f94752c2cbe5e6c2680398fc612de1e58a82  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/api-docs/page.tsx
+49aeb352cef14da4192e0e198ddcdc7fe9ddd65ba5c094adddae407c46e7f713  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/api/reports/[id]/route.ts
+8ca481eb6f96fa8435a246a2e792c0dfdd9caac8ced6dd45d5a298c7bb49c8b4  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/api/reports/[id]/status/route.ts
+939a7cfbe6097780e50305b944c30b58bacf21d8f771e923442d0a1965915aaa  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/api/reports/route.ts
+485cb4c45599cfe8605b78054169b70a0ff8f4a997e9c482755f2dd47f6eea3d  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/api/reports/stats/summary/route.ts
+2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/favicon.ico
+a001ecc92f6103e499433a5f6fd6d8c380ebb80ebcdaea1b8f75a7c3155b37e6  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/globals.css
+ee7827a13c2d55419c2f224746812a3a9876dca57d6e9ed4422d664ba3630bff  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/layout.tsx
+185bde3dc2bea4b9ce47397daca4884e0c43cdf1295e290e5034b91fccab6443  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/login/page.tsx
+d6a706f009d2898b3ce0faebb78fb357ffffdd8e02e40634a84b5edc3d68a716  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/page.tsx
+bd7d78ca6b0eee022be6702edd51478bc43939c75f5a15be15b498d15224fb11  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/providers.tsx
+09af67127794b67f09366754cd8a06eef8b8eac5dbffd70a22c7127b0f81c6ca  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/reports/[id]/page.tsx
+2664c913fd6949515850661120893fbb90edd624b0fc46a6c554f659533820f1  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/reports/page.tsx
+8a4df3876fb0d13904c5fccc155488a2bfc87d0fb73fc4564c3a395ad3e80ac9  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/app/track/page.tsx
+affabf932157d55fdca12d0992b66215bf328822347a3d146b698ef07ec3a0ee  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/components/AuthContext.tsx
+c0af4110fcf77c4acaa2d039828bac0eb6566d40786f79ec5be2dfa762803cd2  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/components/CategoryBarChart.tsx
+e6521002305d6e5d423360dcf3c807f1dcf4cc96d4ec6c13ae46d9ea672770e2  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/components/FilterBar.tsx
+1d4715a50ce5510364e95c6dea68b471df7edce5aeaf72e0f689c12986379245  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/components/LayoutWrapper.tsx
+a04cf1efdf4560d93bc51f0570ef06255d42a27e27c375643d04770d7bd30e44  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/components/StatCard.tsx
+9207c4a4e25d8f26142ed3789b28d16834fc08c8843e0e96dd66cf2455010621  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/components/StatusBadge.tsx
+dee3fd50721b5653073552266b76f3d5be26a85a8afd38b3da2820275d984f9d  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/components/UrgencyPieChart.tsx
+9e6b8769d7e8d6f903565ed217371b04556e5b45341f8ef9f98d9f80766eeaca  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/docker-compose.yml
+8e3c242673d0ab0dd8b85bea6879acfa701a6381ea52e9bef4885e079a467033  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/api.ts
+af15bd910afdde590f63c28f869ab44830f0449800854d2a46e69f6a31dc5e3b  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/firebase.ts
+f23025a3b214b28fe6b861684dd33b8286bc6f09ab42145453a78296d64ba5d5  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/server/db.ts
+799c9815620c253c18c2191958512a8a4ae8bd4177acea4c7280db6f365f4f4f  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/server/firebaseAdmin.ts
+c36194040e45bee92ab69ed0d0cb4bd73ea05ef12317a75560f3c1ffe4f3d903  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/server/gemini.ts
+a45ca21939b386c636a5d7de5b7bcf641ba0162a41a8ffaecff843429f7fe4c9  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/server/jaccard.test.ts
+ab27eea5c96afd9ea7359b6507095c0c86b79deb86f5336daaf44818cf6a235d  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/server/jaccard.ts
+85b78016d56014652569bc6720f3b7a13a0461e3c878d9f3fd653fa780ecf173  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/server/models/Report.ts
+f7b6b2d474b094855d9b973707740f928f32a9b42ae85057d0236d27c11b4e23  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/server/rateLimiter.ts
+4acbc7165a8d54738ff62b51414e772c08fe78434e524e6d8770180d3ba2925f  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/lib/utils.ts
+1e3206cb200e264fdddb4dbb2e4772daebc839fdbc94b78316d74892a0de6fa2  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/next.config.mjs
+3f0ea9c88be220d9124bbd78e6300e34254d8257426111935b33f782c3c027cf  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/package-lock.json
+d5e3dabba5d30d8fd42d6fc2518d808784adfef6f6d3b5eb96052d11dbb17cc3  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/package.json
+efa65c65e17d51d58570edce9d702b0604fdf6a9b8db65afaed8f075af8867c7  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/postcss.config.mjs
+55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/public/next.svg
+3fa5cd757b418e18afc68ddebad55f443206e410327921ddb2bf1be731658880  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/public/vercel.svg
+ff9126203edbe510cf53e455cbf66149596ecac259ed5311e06817c6191a6681  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/tailwind.config.ts
+54202f1d6d35ba51c3daea32bf67e8da24568ec0cb0c341fa0b5ed2ceb174f2d  ISD Project final/CrisisDesk-AI-main/CrisisDesk-AI-main/tsconfig.json
+f86311b1da23d64e5f534d63b4bfa1d9811fc9b754eeccff9f19eb9606ea3c2d  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/.firebase/hosting.ZGlzdA.cache
+630b6bd2189863edf27a9ea4762655d670523eb24a58bc0eb5a8bfbdd318a3d1  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/.firebaserc
+bd1da5b811eb0b8c9905f795fd656af143b8de78932e09a248cd0cbf8d5618ab  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/.gitignore
+c13c00732a0f22528e36da52d50569158224a392485aff800f69028bae274429  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/PROJECT_REQUIREMENTS.md
+5d5a1032765e26f5497463adeaf78807681882eb27c8343c48963d691812984e  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/README.md
+101423b81ab1872cbb245dc215c1def5120e37576bc293831a04de4c51e35704  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/dist/index.html
+4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/dist/vite.svg
+da0cbf3213f2994741024e2aa5165d017e0345f389dcd2f8a0db97fee7289d1b  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/eslint.config.js
+40cb9845ed670e185bdc382366f0c5cb8f0260361cc4d3ae3ec7d78edc52ce70  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/firebase.json
+86868e69c4e66def93a133d5ed04285c459797fa588d8ace9198a270f90fbd4d  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/index.html
+560cda3714d644825fd570b290a39f62916a7dfb4bf74e5178bff50a1e4f3546  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/package-lock.json
+8b76df544b173473cdc6fd98513f2e59fced3182d6be0df4a6d88418c8377203  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/package.json
+4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/public/vite.svg
+96d7649fd0a68c0181d986c879e4077d6952769ff421d49230d18236614d62b5  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/App.jsx
+35ef61ed53b323ae94a16a8ec659b3d0af3880698791133f23b084085ab1c2e5  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/assets/react.svg
+e724aa98421f4e1fef9785827bc3b77e34cc06ad68992446c1155b39b1df92ad  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/components/BangladeshIssueMap.jsx
+7f63ec78c73d7bd670d99dcc4c17e9440fb93989a37e4864b4786972191c8c22  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/components/Footer.jsx
+6dc49365985070cf45001355bc7ac98d41e75aad62b2507f8f06615a63360c40  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/components/InvoiceDocument.jsx
+f6101d15b9e8f2b6be3fc8c768a8a01f558b5128048cfea26cf39db58f64d45e  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/components/Navbar.css
+9acec35e988011347a3b0fb228963fae449cf5104c8a0011bdaab7bd2019434a  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/components/Navbar.jsx
+40d695d018a83a7d37c639ad605c5ee6f440fe901e68bfd50af9d6b79e3dab48  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/context/AuthContext.jsx
+2dc921b9d8f386b396feed027f22139940830016b6313f741749ee3259990543  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/data/bangladeshDistrictsData.js
+f492335a10be9b5baab6fed057c3902414af848c06d007c9c3a7f3723538133e  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/firebase.js
+c69b1493ef2681c6a9f604d1ca3d3fef30ae65678528a31b787bbe93d91eddd2  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/firebase/firebase.config.js
+ac39af0fa078fbb6bf34b8cebd317357139ef757b3dd53e9eefa5c6a8c075dc6  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/index.css
+73971f21b069a36e2440f91d01a44f5d57d0265804b4079fb058383fd4249df8  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/main.jsx
+12388099c079e10edd2a2ae174180d2ae17b2492bdd69ad75a96e021d3fd64fc  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/About.jsx
+eaa61ca2130433b8a732b3ffcb82cb6360f8b1ecfbab9d7ebefe321d1f273ef8  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/AllIssues.jsx
+b1582931594aaf874f685ab9821bba1be74026fb71c41c61c1e7cdeaf93d51dc  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/AssignedIssues.jsx
+c38b4664ad83ead39f3bf32801940dcd9af49a08c8136d0bead31473fe2dfee7  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Contact.jsx
+19995544368b73fb2af7a00128d8fbfae467feaf1169b0307f2a66777e414169  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Dashboard.jsx
+8b1aa725bdcd2f20b1b597e7eec0e6300c841815e0a32f43902e137c1bcef862  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Home.css
+233432a5a261cd7de9a51629d7fce1a730ba84ceeb6726feea478390a72359d8  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Home.jsx
+012efab6265d5b265b14cd0d8839cbfc4a8e0307b776cd51101d45d9758e69b9  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/IssueDetails.jsx
+ebc29cb67195d99453e17d169732caa304ae3119353942e44d57447eb57a8467  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Login.jsx
+a7bad33ba00322b516aa6d9462b2e65cf396230a4319c3fd34287dd86181471b  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/ManageIssues.jsx
+381da7cd59b85759bfeb8d556eb6b5d00b8c40cec4bb1e18f35b831cb6be62c4  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/ManageStaff.jsx
+32b9095ec21169df15b03662794702aa2cf28cde5cc738b82a9bcedbf444fd94  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/ManageUsers.jsx
+f42ad94a9c86eed254e6ab579a7d1ac2d73b6e567aaf1a142705fff9ddfb7ed5  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/MyIssues.jsx
+9b8b8e7c9bdecc1804ddf998616af3cf5631bf7e4f841bc32b385a706454ae85  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/NotFound.jsx
+4046e1505799879b78a030ed5d86219f747d3350ef11d816ee2b1f24846ffeec  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Payments.jsx
+a9e9fb5146e78aefcf230e764e8e813abdd034183ebfbd187ee8aca5008a09ce  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Profile.jsx
+e5df06bf07f4abe629358b84ea8b23c75d93ba024fc6261b743b586e1a414266  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/Register.jsx
+8796f45a5bdf2ac7dd0a36e081e7491a4fa7217b0bd7fc211266b4a040d048e4  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/ReportIssue.jsx
+885b341f27ba4a3f9bcf959aed74814fdd421c183c8d9506578b09ae5411a939  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/pages/TrackIssue.jsx
+fd74aa5dd6e423acb90b4858a8af337e7f78480d24d7a79776f9413e9ce01d75  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/src/utils/api.js
+0ecff71cc2ad5da02ba9cdae5333431044f59c4b7f9376e50356e856fec2e20a  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/vercel.json
+c8237e0134956af51bdecc6ea6c94c8e5db3ff2f4dda60db4a65eb7e6a1f9677  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Client Side/vite.config.js
+822d4ea34b657b4cf1a6a2682598753e4361dc2f694ea6277bd0bd2cadb2a0c8  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/README.md
+d3fa631c3a3ed4463ceaf4752e7755fd201b7432165920a1354682a757b2f7f2  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/.env.example
+be6f87112dcdc2363a717446e0529c410cb4d1968647a2828b9822db16f804ab  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/.gitignore
+9bb78233bc6ab09f45cc04a3ce601c0cd956bcab083b529ffb79b1536376d4b6  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/api/index.js
+57e1597e86a2bb5811dc3400ab3a20e33f962e764e41c07f2cfeab72a0e445bb  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/config/openai.js
+82133bc8bd2ea1cd960aaecc0ff4265f47975eb275e4c4183b8cf2fa7f18dd76  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/encode.js
+86f665a95372c9db8738849fe4a0ed52942127ab2546e5c02e20ca3846ce5a39  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/encode_json.js
+5cc3e7bf72bb3ba9fa34108b33ad0db1154c356a94292fd637a903f12a08a477  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/index.js
+a56b383b09108ad3bbca68750f71e4f249dc9d22c8c5a5956d4bfdead45b7e19  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/models/Report.js
+96ed08a6c6569b95c22efe524e5bc0ff9b5cb1ee5dc9577e4b06414b88f375ca  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/package-lock.json
+0d7b4cea16b0b707cb22893a8ff63663528f1fa2906ee3cb14a433b7a535a4ec  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/package.json
+f9fce8f38db494552dc14d8d5faa35bcb0ae396ef29a19dd0f70e22ee42295af  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/scripts/backfillGeocoding.js
+4e2c9bd04f09a15ae56de7c031e56ed191185df8dd09d41bcb09bdae11fae3b8  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/scripts/fixStaffPasswords.js
+8fc6e44ae63b7e35838134f49048d2ca2c49801b8306dd68fcce7295c890c49b  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/scripts/seedRequestedStaff.js
+d148bfa561c0d5e8477e738d50b28fabe16cb86486cfc26f7885123333dca280  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/seed.js
+7e48598298fd199b912e14aade131fc3123ddaf474b035ced9c8e85fca535d8a  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/services/aiProcessingPipeline.js
+b97f8abf46f7e9a39a655ed4534b3fb6bb3503f97883b709fbebbcbab8b76809  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/services/aiReportAnalysis.js
+2085596c6e3ccaec57ce2f4e998f9e42023fadbfe2dba96b99d901078d85013e  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/services/duplicateDetection.js
+a58e3b4466723bea5bea7c5d546fb750ba3b4d36c0ef913443bc413ff1e5ade8  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/services/geocoding.js
+5afb0260d7a5b9dd037b3e3d54a0bbbfb99f79353ecf610cf8058d3f4944b752  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/test_ai_analysis.js
+c972c21b02bdd66c8b3e3aa75796e8131c02365dd8f5d00d076a5926225f60a2  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/test_duplicate_detection.js
+0624d0c5670729a714e1383b98b7b30be5c8557cbe5ed67a1b41eb6714ac4fdb  ISD Project final/Public-Infrastructure-main/Public-Infrastructure-main/Server Side/vercel.json
+6e1aa6d806503f0d2b6a2e9061401aa95ddab3cb13e61cb0f7ed4f18e4d70037  ISD Project final/ResQ (3).pdf
+76760c16d0a47067d11431a6ba4e3e776e461aeb90aeeedb473d4843171768d9  ISD Project final/env
+926714ffb8a01a78dd37464947617d88bb3fbf482c6d9963192a66e8e60edf93  ISD Project final/env.download

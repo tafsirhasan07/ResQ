@@ -1,0 +1,9 @@
+node_modules
+.next
+.env
+.env.local
+credentials.txt
+*.tsbuildinfo
+storage/*.json
+public/uploads/*
+!public/uploads/.gitkeep

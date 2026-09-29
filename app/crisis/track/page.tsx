@@ -1,0 +1,1 @@
+import Section from '@/components/Section';import TrackBox from '@/components/TrackBox';export default function Track(){return <Section title="Track your report" subtitle="Enter the tracking code shown after submission."><TrackBox/></Section>}
